@@ -16,6 +16,28 @@
             /* Color de fondo para la sección hero */
             background-color: #3B82F6;
         }
+
+        /* Animación para el texto que se mueve */
+        @keyframes marquee {
+            0% { transform: translateX(100%); } /* Empieza fuera del contenedor a la derecha */
+            100% { transform: translateX(-100%); } /* Termina fuera del contenedor a la izquierda */
+        }
+
+        .animate-marquee {
+            animation: marquee 8s linear infinite; /* Se ha reducido la duración a 8 segundos para que se mueva más rápido */
+            display: inline-block; /* Para que la animación funcione correctamente */
+        }
+
+        /* Animación para el movimiento horizontal del logo */
+        @keyframes moveHorizontal {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(10px); } /* Se mueve 10px a la derecha */
+            100% { transform: translateX(0); }
+        }
+
+        .logo-move-horizontal {
+            animation: moveHorizontal 2s ease-in-out infinite alternate; /* Mueve de lado a lado en 2 segundos, suavemente */
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -23,13 +45,18 @@
     <!-- Barra de Navegación -->
     <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
         <div class="container mx-auto flex justify-between items-center flex-wrap">
-            <!-- Se ha añadido la imagen del logo en la parte superior izquierda -->
-            <!-- Se ha cambiado el formato del logo de circular a rectangular eliminando la clase 'rounded-full' -->
+            <!-- Logo en la parte superior izquierda con animación de movimiento horizontal -->
             <a href="#" class="text-2xl font-bold text-blue-700 flex items-center">
-                <!-- Fondo del logo en blanco -->
-                <img src="https://lh3.googleusercontent.com/d/1faHDI7ICnoQ2z1IUQ1Nw1YvyHH8FqeNb" alt="Logo de Taxi Rápido" class="h-10 w-auto mr-2 bg-white">
+                <img src="https://lh3.googleusercontent.com/d/1faHDI7ICnoQ2z1IUQ1Nw1YvyHH8FqeNb" alt="Logo de Taxi Rápido" class="h-10 w-auto mr-2 bg-white logo-move-horizontal">
             </a>
-            <!-- El menú de navegación ha sido eliminado -->
+            <!-- Contenedor del mensaje que se mueve -->
+            <div class="flex-grow text-center overflow-hidden h-10 flex items-center justify-center">
+                <p class="text-blue-900 text-lg font-semibold whitespace-nowrap animate-marquee">
+                    ¡Hola a todosssss!
+                </p>
+            </div>
+            <!-- No hay menú de navegación a la derecha -->
+            <div class="w-10"></div> <!-- Espacio para balancear el layout si es necesario, o eliminar si no aplica -->
         </div>
     </nav>
 
@@ -42,11 +69,6 @@
             <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up delay-200">
                 Llegamos a tu destino con rapidez y profesionalismo, las 24 horas del día.
             </p>
-            <!-- El enlace a "Contacto" ha sido eliminado ya que la sección se va a quitar -->
-            <!-- <a href="#contacto" class="bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-yellow-500 transition duration-300 transform hover:scale-105 animate-fade-in-up delay-400">
-                ¡Reserva Ahora!
-            </a> -->
-            <!-- Puedes añadir un nuevo CTA o simplemente dejarlo sin uno si lo prefieres -->
         </div>
     </section>
 
@@ -78,10 +100,8 @@
     </section>
 
     <!-- Nueva Sección: Logo y Frase Motivadora -->
-    <!-- Se ha cambiado el fondo a blanco y el color del texto a negro para esta sección. -->
     <section id="motivacion" class="bg-white text-gray-900 py-12 md:py-16 rounded-lg shadow-md mx-4 md:mx-auto max-w-7xl mt-8 flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 px-4">
         <div class="md:w-1/3 flex justify-center">
-            <!-- Fondo del logo en blanco -->
             <img src="https://lh3.googleusercontent.com/d/1faHDI7ICnoQ2z1IUQ1Nw1YvyHH8FqeNb" alt="Logo de Taxi Rápido" class="h-24 md:h-32 w-auto shadow-lg bg-white">
         </div>
         <div class="md:w-2/3 text-center md:text-left">
