@@ -1,126 +1,627 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Rápido - Tu Viaje Seguro y Confiable</title>
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de la fuente Inter -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .hero-background {
-            /* Color de fondo para la sección hero */
-            background-color: #3B82F6;
-        }
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Favicons -->
+  <link rel="icon" href="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/YsuXQjQpNDlwrOUVWq6Ocr0s9RU98cGsOnGMBEjk.png">
+  <!-- Libs CSS -->
+    <!-- Libs CSS -->
+  <link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/%40fancyapps/fancybox/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/%40fortawesome/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/flickity/dist/flickity.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/highlightjs/styles/vs2015.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/simplebar/dist/simplebar.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/flickity-fade/flickity-fade.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/swiper/swiper.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/wow/wow.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/libs/wow/wow.js">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/fonts/feather/feather.css">
 
-        /* Animación para el texto que se mueve */
-        @keyframes marquee {
-            0% { transform: translateX(100%); } /* Empieza fuera del contenedor a la derecha */
-            100% { transform: translateX(-100%); } /* Termina fuera del contenedor a la izquierda */
-        }
+<!-- Theme CSS -->
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/css/theme.min.css">
+<link rel="stylesheet" href="https://jsdriver.net/server-app/public/assetsweb/css/style.css">
 
-        .animate-marquee {
-            animation: marquee 8s linear infinite; /* Se ha reducido la duración a 8 segundos para que se mueva más rápido */
-            display: inline-block; /* Para que la animación funcione correctamente */
-        }
+  
+  <title>JSDriver - Hecho por Zuperman si por Zuperman</title>
+<style>
+    .flickity-page-dots .dot.is-selected {
+        background-color: #2bc9de;
+    }
 
-        /* Animación para el movimiento horizontal del logo */
-        @keyframes moveHorizontal {
-            0% { transform: translateX(0); }
-            50% { transform: translateX(10px); } /* Se mueve 10px a la derecha */
-            100% { transform: translateX(0); }
-        }
+    #welcome:before {
+        position: absolute;
+        content: " ";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+        /* background-image: linear-gradient(#00000099, #0009); */
+        background-color: #ffffff;
+    }
 
-        .logo-move-horizontal {
-            animation: moveHorizontal 2s ease-in-out infinite alternate; /* Mueve de lado a lado en 2 segundos, suavemente */
-        }
-    </style>
+    .nav-link.home {
+        background: var(--logo-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link.home::before {
+        content: "";
+        position: absolute;
+        left: .75rem;
+        right: .75rem;
+        bottom: .25rem;
+        border-top: 2px solid #3dd845;
+    }
+
+  .driver a.nav-link {
+  font-size: 14px;  
+  margin-top: 3px;
+  font-weight: 100;
+  color: #ffffff !important;
+  display: none;
+}
+  .navbar-light .navbar-nav .nav-link:focus,
+  .navbar-light .navbar-nav .nav-link:hover,
+  .nav-link.active {
+  background: linear-gradient(90deg, #111 15%, #111 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Estilos para el banner "Hecho por Zuperman" */
+.zuperman-banner {
+    background-color: #f7d716; /* Un color amarillo brillante */
+    color: #333;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+</style>  
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body data-spy="scroll" data-target=".navbar" data-offset="71">
 
-    <!-- Barra de Navegación -->
-    <nav class="bg-white shadow-md p-4 sticky top-0 z-50 rounded-b-lg">
-        <div class="container mx-auto flex justify-between items-center flex-wrap">
-            <!-- Logo en la parte superior izquierda con animación de movimiento horizontal -->
-            <a href="#" class="text-2xl font-bold text-blue-700 flex items-center">
-                <img src="https://lh3.googleusercontent.com/d/1faHDI7ICnoQ2z1IUQ1Nw1YvyHH8FqeNb" alt="Logo de Taxi Rápido" class="h-10 w-auto mr-2 bg-white logo-move-horizontal">
-            </a>
-            <!-- Contenedor del mensaje que se mueve -->
-            <div class="flex-grow text-center overflow-hidden h-10 flex items-center justify-center">
-                <p class="text-blue-900 text-lg font-semibold whitespace-nowrap animate-marquee">
-                    ¡Hola a todosssss!
-                </p>
-            </div>
-            <!-- No hay menú de navegación a la derecha -->
-            <div class="w-10"></div> <!-- Espacio para balancear el layout si es necesario, o eliminar si no aplica -->
-        </div>
-    </nav>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top py-2 border-bottom" style="background-color:#ffffff;">
+    <div class="container-fluid">
 
-    <!-- Sección Hero -->
-    <section id="inicio" class="hero-background bg-blue-600 text-white py-4 md:py-6 flex items-center justify-center rounded-b-lg shadow-lg">
-        <div class="container mx-auto text-center px-4">
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 animate-fade-in-up">
-                Tu Viaje Seguro y Confiable
-            </h1>
-            <p class="text-lg md:text-xl mb-8 opacity-90 animate-fade-in-up delay-200">
-                Llegamos a tu destino con rapidez y profesionalismo, las 24 horas del día.
-            </p>
-        </div>
-    </section>
+      <!-- Brand -->
+      <a class="navbar-brand order-1 order-md-1" href="https://jsdriver.net/server-app/public">
+                
+        <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/CNo6sntse7KNB37OYBFD8vyHBE8T1Baqmk53h8Ag.png" alt="Logo" style="max-width: 100px;">
+        
+              </a>
 
-    <!-- Sección de Servicios -->
-    <section id="servicios" class="py-16 bg-white rounded-lg shadow-md mx-4 md:mx-auto max-w-7xl mt-8">
-        <div class="container mx-auto text-center px-4">
-            <h2 class="text-3xl md:text-4xl font-bold mb-10 text-blue-800">Nuestros Servicios</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Servicio 1 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/80x80/60A5FA/FFFFFF?text=&#128665;" alt="Taxi Icon" class="mx-auto mb-4 w-20 h-20 rounded-full bg-blue-200 p-3">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-700">Viajes Locales</h3>
-                    <p class="text-gray-600">Llega a cualquier punto de la ciudad de forma rápida y segura.</p>
+      <!--<a class="navbar-brand order-3 order-md-2">
+        <marquee>
+          Coming Soon Fall 2021. Now Accepting Driver Applications
+        </marquee>
+      </a>-->
+
+      <!-- Toggler -->
+      <button class="navbar-toggler order-2" type="button" data-toggle="collapse" data-target="#navbarLandingCollapse" aria-controls="navbarLandingCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Collapse -->
+      <div class="collapse navbar-collapse order-md-3" id="navbarLandingCollapse">
+
+        <ul class="navbar-nav nav-divided ml-auto">
+          <li class="nav-item dn-1">
+            <a class="nav-link active"  href="https://jsdriver.net/server-app/public">Rider</a>
+          </li>
+          <li class="nav-item dn-2">
+            <a class="nav-link home" style="color:#111 !important;" href="https://jsdriver.net/server-app/public">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+  
+            <a class="nav-link driver" style="color:#111 !important;" data-toggle="dropdown" href="#">Driver</a>
+
+            <div class="dropdown-menu">
+              <div class="card card-lg">
+                <div class="card-body">
+                  <ul class="list-styled font-size-sm">
+                    <li class="list-styled-item">
+                      <a class="list-styled-link apply" href="https://jsdriver.net/server-app/public/driverpage">
+                        Apply to Drive
+                      </a>
+                    </li>
+                    <li class="list-styled-item">
+                      <a class="list-styled-link drive" href="https://jsdriver.net/server-app/public/howdriving">
+                        How it works
+                      </a>
+                    </li>
+                    <li class="list-styled-item">
+                      <a class="list-styled-link req" href="https://jsdriver.net/server-app/public/driverrequirements">
+                        Driver Requirements
+                      </a>
+                    </li>
+                    <!-- <li class="list-styled-item">
+                      <a class="list-styled-link" href="dmv.php">
+                        DMV check
+                      </a>
+                    </li> -->
+                    <li class="list-styled-item">
+                      <a class="list-styled-link safe" href="https://jsdriver.net/server-app/public/safety">
+                        Safety
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <!-- Servicio 2 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/80x80/60A5FA/FFFFFF?text=&#128747;" alt="Airport Icon" class="mx-auto mb-4 w-20 h-20 rounded-full bg-blue-200 p-3">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-700">Traslados al Aeropuerto</h3>
-                    <p class="text-gray-600">Puntualidad garantizada para tus vuelos de llegada y salida.</p>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link areas"  style="color:#111 !important;" href="https://jsdriver.net/server-app/public/serviceareas">Service&nbsp;Areas</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+
+            <a class="nav-link" style="color:#111 !important;" data-toggle="dropdown" href="#">Sign&nbsp;up</a>
+
+            <div class="dropdown-menu">
+              <div class="card card-lg">
+                <div class="card-body">
+                  <ul class="list-styled font-size-sm">
+
+                    <li class="list-styled-item">
+                      <a class="list-styled-link" href="https://jsdriver.net/server-app/public/driverpage">
+                        Apply to Drive
+                      </a>
+                    </li>
+                    <li class="list-styled-item">
+                      <a class="list-styled-link" href="https://jsdriver.net/server-app/public">
+                        Sign up to ride
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-                <!-- Servicio 3 -->
-                <div class="bg-gray-50 p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <img src="https://placehold.co/80x80/60A5FA/FFFFFF?text=&#128188;" alt="Business Icon" class="mx-auto mb-4 w-20 h-20 rounded-full bg-blue-200 p-3">
-                    <h3 class="text-xl font-semibold mb-3 text-blue-700">Servicio Corporativo</h3>
-                    <p class="text-gray-600">Soluciones de transporte para empresas y ejecutivos.</p>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+<div id="home" class="container-fluid mt-10">
+
+    <div class="row bg-cover" data-jarallax data-speed=".8" style="background: #5cd7b1 !important;background-image: url(img/pattern-1.svg)">
+        <div class="col-md-6 p-0">
+            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/7IyequYxO0s6wyIdAt80J0pQhzByxkV7LYjBSGlW.png" alt="" class="w-100">
+        </div>
+        <div class="col-md-6 py-10 py-md-0  m-auto">
+            <div class="text-center">
+                        
+                <h1 class="text-white">
+                  <h2><strong>&iexcl;Es hora de cambiar tu experiencia de viaje!<br />
+Descarga la app de JSDriver ​​hoy mismo.</strong></h2>   
+                </h1>
+            
+                        
+                <div class="row">
+                    <div class="col-md-6 mb-5 text-md-right">
+                        <a href="https://apps.apple.com/do/app/jsdriver/id6711329856" target="_blank">
+                            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/i14BWjhLnQmRNSBixfIUq0dFlvNUxjC5WDZmbkp7.svg" alt="" class="w-50 w-md-75 wow slideInLeft">
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-5 text-md-left">
+                        <a href="https://play.google.com/store/apps/details?id=com.jsdriver.taxi.rider.cliente" target="_blank">
+                            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/cng3OM9Dptnrrjc2JOhy7Qsx2RYSU6L4FIVAtVSW.svg" alt="" class="w-50 w-md-75 wow slideInRight">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Nueva Sección: Logo y Frase Motivadora -->
-    <section id="motivacion" class="bg-white text-gray-900 py-12 md:py-16 rounded-lg shadow-md mx-4 md:mx-auto max-w-7xl mt-8 flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 px-4">
-        <div class="md:w-1/3 flex justify-center">
-            <img src="https://lh3.googleusercontent.com/d/1faHDI7ICnoQ2z1IUQ1Nw1YvyHH8FqeNb" alt="Logo de Taxi Rápido" class="h-24 md:h-32 w-auto shadow-lg bg-white">
-        </div>
-        <div class="md:w-2/3 text-center md:text-left">
-            <p class="text-2xl md:text-3xl font-bold leading-tight">
-                "Tu destino, nuestra pasión. Viaja con confianza."
-            </p>
-        </div>
-    </section>
+</div>
 
-    <!-- Pie de Página -->
-    <footer class="bg-gray-800 text-white py-8 rounded-t-lg mt-8">
-        <div class="container mx-auto text-center px-4">
-            <p>&copy; 2025 Taxi Rápido. Todos los derechos reservados.</p>
-            <div class="flex justify-center space-x-4 mt-4">
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Privacidad</a>
-                <a href="#" class="text-gray-400 hover:text-white transition duration-300">Términos</a>
+<!-- 
+<section class="py-15 mt-10" id="welcome" data-jarallax data-speed=".8" style="background-image: url(img/1.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-7 text-white ml-auto">
+                <h2>
+                    It’s time to change your ride experience!
+                    Download the app for free
+                </h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6 mb-5 text-md-right">
+                                <img src="img/app-store.svg" alt="" class="w-50 w-md-100 wow slideInLeft">
+                            </div>
+                            <div class="col-md-6 mb-5 text-md-left">
+                                <img src="img/play-store.svg" alt="" class="w-50 w-md-100 wow slideInRight">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1>
+                    No Mask.No ride
+                </h1>
             </div>
         </div>
-    </footer>
+    </div>
+</section> -->
+    
+
+<section class="py-10 bg-light">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 m-auto">
+                <div class=" dan-card-30 card lift p-5 mb-md-0 ">
+                    <div class=" card-img-top position-relative mx-auto " style=" max-width: 120px; ">
+                        <img class=" img-fluid " src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/tc0hC6m3wb9tUrZ0WTn3QVrR2ikIIekKHQvcTsV7.svg" alt=" ... ">
+                    </div>
+                    <div class=" card-body text-center ">
+                        <h6 class=" mb-4 text-dark ">
+                            <h2><strong>Toca un bot&oacute;n y pide un viaje</strong></h2>
+
+<p>&nbsp;</p>
+                        </h6>
+                        <p class=" mb-0 text-gray-500 ">
+                            <p>Elige tu viaje y configura tu ubicaci&oacute;n. Ver&aacute;s la foto del conductor y los detalles del veh&iacute;culo, y podr&aacute;s seguir su llegada en el mapa.</p>
+
+<p>&nbsp;</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 m-auto">
+                <div class=" dan-card-30 card lift p-5 mb-md-0 ">
+                    <div class=" card-img-top position-relative mx-auto " style=" max-width: 120px; ">
+                        <img class=" img-fluid " src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/nMGcH7Cdd8HlaeBXqAbO9eCDiiX5lyKnsay6YxGf.svg" alt=" ... ">
+                    </div>
+                    <div class=" card-body text-center ">
+                        <h6 class=" mb-4 text-dark ">
+                            <h2><strong>Siempre activo, siempre disponible</strong></h2>
+
+<p>&nbsp;</p>
+                        </h6>
+                        <p class=" mb-0 text-gray-500 ">
+                            <p>Sin llamadas ni recogidas que programar. Con disponibilidad 24/7, solicita un viaje a cualquier hora del d&iacute;a, cualquier d&iacute;a del a&ntilde;o.</p>
+
+<p>&nbsp;</p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 m-auto">
+                <div class=" dan-card-30 card lift p-5 mb-md-0 ">
+                    <div class=" card-img-top position-relative mx-auto " style=" max-width: 120px; ">
+                        <img class=" img-fluid " src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/Q1KRguEcisJ1kzQ9QkvWo1Gbp29SUIqbKS8YHP2R.svg " alt=" ... ">
+                    </div>
+                    <div class=" card-body text-center ">
+                        <h6 class=" mb-4 text-dark ">
+                            <h2><strong>Tu calificas, nosotros escuchamos</strong></h2>
+                        </h6>
+                        <p class=" mb-0 text-gray-500 ">
+                            <p>Califica a tu conductor y comparte tu experiencia de forma an&oacute;nima. Tus comentarios nos ayudan a que cada viaje sea una experiencia de 5 estrellas.</p>
+
+<p>&nbsp;</p>                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nuevo banner "Hecho por Zuperman" -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12">
+            <div class="zuperman-banner">
+                Hechor por Superman y sus amigos
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container dan-slider-2 py-8">
+    <div class="row position-relative align-items-center">
+        <div class="col-md-5 position-static order-2 order-md-2">
+            <!-- Slider -->
+            <div class="position-static flickity-buttons-lg" id="sliderArrivals" data-flickity='{"pageDots": true}'>
+
+                <!-- Item (Viajes a pedido eliminado) -->
+                <!-- Item -->
+                <div class="col-12">
+                    <!-- Card -->
+                    <div class="card">
+                        <h2>
+                            <h2><strong>Haga que su viaje de trabajo o de negocios sea m&aacute;s ecol&oacute;gico y rentable.</strong></h2>
+
+<p>&nbsp;</p>
+                        </h2>
+                    </div>
+                </div>
+
+                <!-- Item -->
+                <div class="col-12">
+                    <!-- Card -->
+                    <div class="card">
+                        <h2>
+                            <h2><strong>Viajes seguros y f&aacute;ciles.</strong></h2>
+
+<p>&nbsp;</p>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-7 order-1 order-md-1">
+            <!-- Slider -->
+            <div data-flickity='{"fade": true, "asNavFor": "#sliderArrivals", "draggable": false}'>
+
+                <!-- Item (Imagen de Viajes a pedido eliminada) -->
+                <!-- Item -->
+                <div class="w-100">
+                    <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/ZZj7Zfav8xI5mzWjXIP7YWgoeqeKL0K39BLP7gFu.jpg" alt="..." class="w-100">
+                </div>
+
+                <!-- Item -->
+                <div class="w-100">
+                    <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/uf7dx1LarHgcxyyB7p04JETjsD9O1kpF833ttL7v.jpg" alt="..." class="w-100">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<section class="slice slice-lg bg-gradient-primary bg-cover py-10" style="background: var(--logo-gradient);background-image: url('https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/J47s4D1AxvdoB7YWbARxCpEexbT1puAR8NVHRUgr.jpg')">
+  <div class="container">
+    <div class="mb-5 text-center">
+      <h3 class="text-white mt-4"><p><strong>Descargue la aplicaci&oacute;n para conductores</strong></p>
+
+<div id="gtx-trans" style="position: absolute; left: -10px; top: 38.3333px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div></h3>
+      <div class="fluid-paragraph mt-3">
+        <!-- <p class="lead lh-180 text-white">Start building fast, beautiful and modern looking websites in no time using our theme.</p> -->
+      </div>
+    </div>
+    <div class="row row-grid align-items-center">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-start mb-5">
+          <div class="pr-4">
+            <div class="icon icon-shape bg-white text-primary box-shadow-3 rounded-circle" style="background: #111 !important;">
+              1
+            </div>
+          </div>
+          <div class="icon-text">
+            <h5 class="h5 text-white">
+              <p><strong>Predicci&oacute;n de ETA en tiempo real</strong></p>
+
+<div id="gtx-trans" style="position: absolute; left: 11px; top: 38.3333px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div>
+            </h5>
+            <p class="mb-0 text-white"><br><br></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-start">
+          <div class="pr-4">
+            <div class="icon icon-shape bg-white text-primary box-shadow-3 rounded-circle" style="background: #111 !important;">
+              2
+            </div>
+          </div>
+          <div class="icon-text">
+            <h5 class="text-white">
+              <p><strong>Recomendaci&oacute;n de clientes</strong></p>
+
+<div id="gtx-trans" style="position: absolute; left: -12px; top: 38.3333px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div>
+            </h5>
+            <p class="mb-0 text-white"><br><br></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="position-relative" style="z-index: 10;">
+          <img alt="Image placeholder" src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/xfDS5hwC86upKc2JecvxKK1YbH8FveJ69RaKRGbH.png" class="img-center img-fluid">
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="d-flex align-items-start mb-5">
+          <div class="pr-4">
+            <div class="icon icon-shape bg-white text-primary box-shadow-3 rounded-circle" style="background: #111 !important;">
+              3
+            </div>
+          </div>
+          <div class="icon-text">
+            <h5 class="text-white">
+              <p><strong>Chat en la aplicaci&oacute;n</strong></p>
+
+<div id="gtx-trans" style="position: absolute; left: -4px; top: 38.3333px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div>
+            </h5>
+            <p class="mb-0 text-white"><br><br></p>
+          </div>
+        </div>
+        <div class="d-flex align-items-start">
+          <div class="pr-4">
+            <div class="icon icon-shape bg-white text-primary box-shadow-3 rounded-circle" style="background: #111 !important;">
+              4
+            </div>
+          </div>
+          <div class="icon-text">
+            <h5 class="text-white">
+              <p><strong>Bot&oacute;n de emergencia SOS</strong></p>
+
+<div id="gtx-trans" style="position: absolute; left: -34px; top: 38.3333px;">
+<div class="gtx-trans-icon">&nbsp;</div>
+</div>
+            </h5>
+            <p class="mb-0 text-white"><br><br></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 m-auto">
+      <div class="row">
+        <div class="col-md-6 mb-5 text-md-right">
+          <a href="https://apps.apple.com/do/app/jsdriver-driver/id6714450497" target="_blank">
+            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/i14BWjhLnQmRNSBixfIUq0dFlvNUxjC5WDZmbkp7.svg" alt="" class="w-50 w-md-50 wow slideInLeft">
+          </a>
+        </div>
+        <div class="col-md-6 mb-5 text-md-left">
+          <a href="https://play.google.com/store/apps/details?id=com.jsdriver.taxi.driver.conductor" target="_blank">
+            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/cng3OM9Dptnrrjc2JOhy7Qsx2RYSU6L4FIVAtVSW.svg" alt="" class="w-50 w-md-50 wow slideInRight">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer style="background: #4f4f4f !important;">
+  <div class="pt-10 px-5 px-md-10">
+    <div class="container-fluid text-white">
+      <div class="row pt-md doot">
+        <div class="col-lg-4 mb-5 mb-lg-0 p-0">
+          <a href="#">
+            <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/5gAIja35VPI0bXJcTLLEph3433KuDPPt6tvYnJSH.png" alt="Footer logo" style="height: 70px;">
+          </a>
+          <p class="pt-2">
+            <p>JSDriver, ​​es una plataforma de viajes compartidos que facilita el uso compartido de viajes entre pares conectando a pasajeros que necesitan viajes de conductores con autom&oacute;viles disponibles para llegar del punto A al punto B con solo presionar un bot&oacute;n.</p>   
+            <!--Blue is a rideshare platform facilitating peer to peer ridesharing by means of connecting passengers who are in need of rides from drivers with available cars to get from point A to point B with the press of a button.-->
+          </p>
+        </div>
+        <div class="col-lg-2 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+
+          <h6 class="heading ml-n5 mb-3">Quick links</h6>
+          <ul class="list-unstyled">
+            <li><a href="https://jsdriver.net/server-app/public" class="text-white opacity-80">Home</a></li>
+            <li><a href="https://jsdriver.net/server-app/public/serviceareas" class="text-white opacity-80">Service Locations</a></li>
+            <li><a href="https://jsdriver.net/server-app/public/compliance" class="text-white opacity-80">Compliance </a></li>
+            <li><a href="https://jsdriver.net/server-app/public/contactus" class="text-white opacity-80">Contact Us</a></li>
+            <li><a href="https://jsdriver.net/server-app/public/privacy" class="text-white opacity-80">Privacy Policy</a></li>
+            <li><a href="https://jsdriver.net/server-app/public/terms" class="text-white opacity-80">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-5 mb-lg-0">
+          <h6 class="heading ml-n5 mb-3">Rider</h6>
+          <ul class="list-unstyled">
+            <!-- <li><a href="#" class="text-white opacity-80">How it works</a></li>
+            <li><a href="#" class="text-white opacity-80">Rider Requirements</a></li> -->
+            <li><a href="https://jsdriver.net/server-app/public/safety" class="text-white opacity-80">Safety</a></li>
+          </ul>
+          <div class="row">
+            <div class="col-md-12 mb-1">
+              <a href="https://apps.apple.com/do/app/jsdriver/id6711329856" target="_blank">
+                <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/i14BWjhLnQmRNSBixfIUq0dFlvNUxjC5WDZmbkp7.svg" alt="" class="w-50 w-md-75 wow slideInLeft animated" style="visibility: visible;">
+              </a>
+            </div>
+            <div class="col-md-12 mb-1">
+              <a href="https://play.google.com/store/apps/details?id=com.jsdriver.taxi.rider.cliente" target="_blank">
+                <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/cng3OM9Dptnrrjc2JOhy7Qsx2RYSU6L4FIVAtVSW.svg" alt="" class="w-50 w-md-75 wow slideInRight animated" style="visibility: visible;">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-4 mb-5 mb-lg-0">
+          <h6 class="heading ml-n5 mb-3">Driver</h6>
+          <ul class="list-unstyled text-small">
+            <li><a href="https://jsdriver.net/server-app/public/howdriving" class="text-white opacity-80">How it works</a></li>
+            <li><a href="https://jsdriver.net/server-app/public/driverrequirements" class="text-white opacity-80">Driver Requirements</a></li>
+            <!-- <li><a href="https://jsdriver.net/server-app/public/dmv" class="text-white opacity-80">DMV check</a></li> -->
+            <li><a href="https://jsdriver.net/server-app/public/safety" class="text-white opacity-80">Safety</a></li>
+          </ul>
+          <div class="row">
+            <div class="col-md-12 mb-1">
+              <a href="https://apps.apple.com/do/app/jsdriver-driver/id6714450497" target="_blank">
+                <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/i14BWjhLnQmRNSBixfIUq0dFlvNUxjC5WDZmbkp7.svg" alt="" class="w-50 w-md-75 wow slideInLeft animated" style="visibility: visible;">
+              </a>
+            </div>
+            <div class="col-md-12 mb-1">
+              <a href="https://play.google.com/store/apps/details?id=com.jsdriver.taxi.driver.conductor" target="_blank">
+                <img src="https://jsdriver.net/server-app/public/storage/uploadwebfrontfiles/cng3OM9Dptnrrjc2JOhy7Qsx2RYSU6L4FIVAtVSW.svg" alt="" class="w-50 w-md-75 wow slideInLeft animated" style="visibility: visible;">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-md-between py-4 mt-4 delimiter-top border-top">
+        <div class="col-md-6">
+          <div class="copyright font-size-xs text-center text-md-left">
+            <p>&copy; 2025&nbsp;JSDriver</p>
+
+<p>&nbsp;</p>
+            <!--© 2021 blue, LLC All rights reserved.
+            <a href="#" target="blank" class="text-dark">
+              Powered By Blue
+            </a>-->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+            <li class="nav-item">
+              <a class="nav-link" href="https://jsdriver.net/server-app/public/footerinstalink" target="_blank">
+                <i class="fab fa-instagram text-white"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://jsdriver.net/server-app/public/footerfblink " target="_blank">
+                <i class="fab fa-facebook text-white"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- JAVASCRIPT -->
+<!-- Libs JS -->
+<!-- JAVASCRIPT -->
+<!-- Libs JS -->
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/jquery/dist/jquery.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/%40fancyapps/fancybox/dist/jquery.fancybox.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/flickity/dist/flickity.pkgd.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/highlightjs/highlight.pack.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/jarallax/dist/jarallax.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/list.js/dist/list.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/simplebar/dist/simplebar.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/smooth-scroll/dist/smooth-scroll.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/flickity-fade/flickity-fade.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/libs/swiper/swiper.min.js"></script>
+<!-- Theme JS -->    
+    <script src="https://jsdriver.net/server-app/public/assetsweb/js/theme.min.js"></script>
+    <script src="https://jsdriver.net/server-app/public/assetsweb/js/script.js"></script>
+
 
 </body>
+
 </html>
